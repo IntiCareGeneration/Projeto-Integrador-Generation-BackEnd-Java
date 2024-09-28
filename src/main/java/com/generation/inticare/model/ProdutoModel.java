@@ -1,6 +1,5 @@
 package com.generation.inticare.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -26,7 +25,7 @@ public class ProdutoModel {
     
     @NotBlank(message = "A foto do produto é obrigatoria!")
     @Size(max = 500, message = "a URL deve conter no maximo 500 caracteres")
-    private String foto_produto;
+    private String fotoProduto;
 
     @NotNull
     private double preco;
@@ -98,12 +97,12 @@ public class ProdutoModel {
         this.usuarioModel = usuarioModel;
     }
 
-	public String getFoto_produto() {
-		return foto_produto;
+	public String getFotoProduto() {
+		return fotoProduto;
 	}
 
-	public void setFoto_produto(String foto_produto) {
-		this.foto_produto = foto_produto;
+	public void setFotoProduto(String foto_produto) {
+		this.fotoProduto = foto_produto;
 	}
     
     
