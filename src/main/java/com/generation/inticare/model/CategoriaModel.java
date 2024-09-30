@@ -24,8 +24,8 @@ public class CategoriaModel {
     @Size(max = 100, message = "O texto deve conter até 100 caracteres")
     private String genero;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "nomeProduto", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("nomeProduto")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoriaModel", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("categoriaModel")
     private List<ProdutoModel> produtoModels;
 
     public Long getId() {
