@@ -1,40 +1,35 @@
 package com.generation.inticare.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.util.List;
 
 @Entity
-@Table (name = "tb_usuario")
+@Table(name = "tb_usuario")
 public class UsuarioModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome do usuário é obrigatorio!")
+    @NotBlank(message = "O nome do usuário é obrigatório!")
     @Size(max = 255, message = "O texto deve conter até 255 caracteres")
     private String nome;
-    
-    
-    
+
     @Schema(example = "email@email.com.br")
-    @NotNull(message = "O Atributo Usuário é Obrigatório!")
-    @Email(message = "O Atributo Usuário deve ser um email válido!")
+    @NotNull(message = "O atributo Usuário é obrigatório!")
+    @Email(message = "O atributo Usuário deve ser um email válido!")
     @Size(max = 255, message = "O texto deve conter até 255 caracteres")
     @Column(name = "email")
     private String usuario;
 
-    @NotBlank(message = "O nome do produto é obrigatorio!")
-    @Size(min = 7, message = "O texto deve conter no mínimo 7caracteres")
+    @NotBlank(message = "A senha é obrigatória!")
+    @Size(min = 7, message = "A senha deve conter no mínimo 7 caracteres")
     private String senha;
 
     private String foto;
@@ -43,6 +38,7 @@ public class UsuarioModel {
     @JsonIgnoreProperties("usuarioModel")
     private List<ProdutoModel> produtos;
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }

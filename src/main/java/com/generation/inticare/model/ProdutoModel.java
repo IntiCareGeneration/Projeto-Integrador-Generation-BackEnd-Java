@@ -7,30 +7,30 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table (name = "tb_produto")
+@Table(name = "tb_produto")
 public class ProdutoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome do produto é obrigatorio!")
+    @NotBlank(message = "O nome do produto é obrigatório!")
     @Size(max = 100, message = "O texto deve conter até 100 caracteres")
     @Column(name = "nome")
     private String nomeProduto;
 
-    @NotBlank(message = "A descrição do produto é obrigatoria!")
+    @NotBlank(message = "A descrição do produto é obrigatória!")
     @Size(max = 255, message = "O texto deve conter até 255 caracteres")
     private String descricao;
-    
-    @NotBlank(message = "A foto do produto é obrigatoria!")
-    @Size(max = 500, message = "a URL deve conter no maximo 500 caracteres")
+
+    @NotBlank(message = "A foto do produto é obrigatória!")
+    @Size(max = 500, message = "A URL deve conter no máximo 500 caracteres")
     private String fotoProduto;
 
-    @NotNull
+    @NotNull(message = "O preço é obrigatório!")
     private double preco;
 
-    @NotNull
+    @NotNull(message = "A quantidade é obrigatória!")
     private int quantidade;
 
     @ManyToOne
@@ -38,9 +38,10 @@ public class ProdutoModel {
     private CategoriaModel categoriaModel;
 
     @ManyToOne
-    @JsonIgnoreProperties("produto")
+    @JsonIgnoreProperties("produtos")
     private UsuarioModel usuarioModel;
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -97,13 +98,11 @@ public class ProdutoModel {
         this.usuarioModel = usuarioModel;
     }
 
-	public String getFotoProduto() {
-		return fotoProduto;
-	}
+    public String getFotoProduto() {
+        return fotoProduto;
+    }
 
-	public void setFotoProduto(String foto_produto) {
-		this.fotoProduto = foto_produto;
-	}
-    
-    
+    public void setFotoProduto(String fotoProduto) {
+        this.fotoProduto = fotoProduto;
+    }
 }

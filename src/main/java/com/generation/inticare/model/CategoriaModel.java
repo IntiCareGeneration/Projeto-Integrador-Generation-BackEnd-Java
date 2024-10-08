@@ -1,11 +1,9 @@
 package com.generation.inticare.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-
 import java.util.List;
 
 @Entity
@@ -16,11 +14,11 @@ public class CategoriaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome da categoria é obrigatorio!")
+    @NotBlank(message = "O nome da categoria é obrigatório!")
     @Size(max = 255, message = "O texto deve conter até 255 caracteres")
     private String nome;
 
-    @NotBlank(message = "O genero é obrigatorio!")
+    @NotBlank(message = "O gênero é obrigatório!")
     @Size(max = 100, message = "O texto deve conter até 100 caracteres")
     private String genero;
 
@@ -28,6 +26,7 @@ public class CategoriaModel {
     @JsonIgnoreProperties("categoriaModel")
     private List<ProdutoModel> produtoModels;
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
